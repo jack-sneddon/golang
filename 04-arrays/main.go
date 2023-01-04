@@ -1,18 +1,16 @@
 package main
 
-import "fmt"
-
 func main() {
-	// declare
-	favoriteTeams := []string{"Milwaukee Bucks", favoriteNFLTeam()}
-	fmt.Println(favoriteTeams)
 
-	// add
-	favoriteTeams = append(favoriteTeams, "BYU Cougars")
-	//append does not modify the slice, it creates a new variable with the added on slice
-	for i, team := range favoriteTeams {
-		fmt.Println(i, team)
-	}
+	// empty array
+	playArrays()
+
+	// slices
+	playSlices()
+
+	// =COUNTA(Table1[Daily Log], Table1[Daily Log])
+	//=COUNTA(Table1[daily log], Table1[daily log])-1
+	// =COUNTA(Jan!C5,Jan!C34)
 
 }
 

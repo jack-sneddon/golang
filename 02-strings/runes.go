@@ -5,7 +5,7 @@ import (
 	"reflect"
 )
 
-func main() {
+func playRunes() {
 	// runes - a data type that stores codes that represent Unicode characters.
 	// go does not have a char type, so anything coming out of a string is  automatically typecast to int32
 	fmt.Println("\n***rune")

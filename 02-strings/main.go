@@ -129,4 +129,12 @@ func main() {
 	lastIce := strings.LastIndex(poem, "ice")
 	fmt.Println("last 'ice' is at index >", lastIce) // join names array
 
+	// string runes
+	playRunes()
+
+	// string comparison
+	playStringComparison()
+
+	// substrings
+	playSubStrings()
 }

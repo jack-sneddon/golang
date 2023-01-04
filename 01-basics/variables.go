@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func main() {
+func playVariables() {
 	fmt.Println("\n===Tour of variables===")
 
 	// quick runthrough of primative types.

@@ -4,4 +4,7 @@ import "fmt"
 
 func main() {
 	fmt.Println("hello world")
+
+	playVariables()
+	playConstants()
 }
