@@ -55,4 +55,23 @@ func playSlices() {
 	fmt.Printf("\nsource slice: %[1]v, address: %[1]p\n", mySlice)
 	fmt.Printf("\ncopy slice:   %[1]v, address: %[1]p\n", sliceCopy4)
 
+	// *** use of make function
+	// Slices can be created with the built-in make function; this is how you create dynamically-sized arrays
+	slice2 := make([]int, 5) // len(a)=5
+	fmt.Printf("\nslice2 len=%d cap=%d %v\n",
+		len(slice2), cap(slice2), slice2)
+
+	// specify the capcity
+	slice3 := make([]int, 0, 6) // len(b)=0, cap(b)=5
+	fmt.Printf("\nslice3 len=%d cap=%d %v\n",
+		len(slice3), cap(slice3), slice3)
+
+	slice4 := slice3[:2]
+	fmt.Printf("\nslice4 len=%d cap=%d %v\n",
+		len(slice4), cap(slice4), slice4)
+
+	slice5 := slice4[1:5]
+	fmt.Printf("\nslice5 len=%d cap=%d %v\n",
+		len(slice5), cap(slice5), slice5)
+
 }
