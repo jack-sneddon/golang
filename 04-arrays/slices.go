@@ -22,6 +22,22 @@ func playSlices() {
 	fmt.Println("mySlice = :", mySlice)
 	fmt.Println("length of the slice:", len(mySlice))
 
+	// create a slice of unknown size
+	var cities []string
+
+	cities = append(cities, "Milwaukee")
+	cities = append(cities, "Joplin")
+	cities = append(cities, "Salt Lake City")
+	cities = append(cities, "Kansas City")
+	cities = append(cities, "Boston")
+	cities = append(cities, "Tuscon")
+	cities = append(cities, "Raleigh")
+	cities = append(cities, "Bellingham")
+	cities = append(cities, "Grand Rapids")
+	cities = append(cities, "Springfild")
+
+	fmt.Println(cities)
+
 	// copy a slice with assignment (shallow copy)
 	sliceCopy1 := mySlice
 	fmt.Println("Copy slice using assignment (shallow copy)")
