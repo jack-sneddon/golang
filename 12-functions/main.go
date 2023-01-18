@@ -15,6 +15,12 @@ func main() {
 	favoriteNFLTeam := favoriteNFLTeam()
 	fmt.Println(favoriteNFLTeam)
 
+	// call a function with multiple return values
+	nfl, nba, mlb := favoriteProTeams()
+	fmt.Printf("\nFavorite NFL team: %v", nfl)
+	fmt.Printf("\nFavorite NBA team: %v", nba)
+	fmt.Printf("\nFavorite MLB team: %v\n", mlb)
+
 	// pass by value
 	passValue := 3
 	fmt.Printf("\npassValue %v, %p", passValue, &passValue)
@@ -32,12 +38,30 @@ func main() {
 	fmt.Printf("\nAnalysis = %v : status code = %d", analysis, status)
 
 	// Variadic functions - open number of arguments
-	fmt.Println("\n")
+	fmt.Println("\n***Variadic Function")
 	printStudents("Joe", "Jane", "Sally", "Bob")
 
 	/* Arrays in Go are values: when you pass an array to a function, it gets a copy of the original array data.
 	if you wan ta  function to update its elewments, use a slice that refers to the array.
 	*/
+
+	// anonymous function
+	// short in scope - less than package
+	whatAmI := func(i interface{}) {
+		switch t := i.(type) {
+		case bool:
+			fmt.Println("I'm a bool")
+		case int:
+			fmt.Println("I'm an int")
+		default:
+			fmt.Printf("Don't know type %T\n", t)
+		}
+	}
+
+	// call anonmoys functions
+	whatAmI(true)
+	whatAmI(1)
+	whatAmI("hey")
 
 }
 
@@ -62,10 +86,23 @@ func favNBATeam() string {
 	return "Milwaukee Bucks"
 }
 
+// return multiple values
+func favoriteProTeams() (football string, basketball string, baseball string) {
+	football = "Green Bay Packers"
+	basketball = "Milwaukee Bucks"
+	baseball = "Milwaukee Brewers"
+
+	return
+
+}
+
+// note the naming of the return value (passedVal.  we could have just said "int")
 func passByValue(passedValue int) {
 	fmt.Printf("\npassedValue %d, %p", passedValue, &passedValue)
 	passedValue += 5
 	fmt.Printf("\npassedValue += 5 = %v, %p", passedValue, &passedValue)
+	// note that passedValue is the return value as defined in the function interface
+	return
 }
 
 func passByReference(passedReference *int) {

@@ -129,6 +129,35 @@ func main() {
 	lastIce := strings.LastIndex(poem, "ice")
 	fmt.Println("last 'ice' is at index >", lastIce) // join names array
 
+	// concatinate strings
+	fmt.Println("*** Concat Strings")
+	str1 := "Led Zepplin"
+	str2 := "Ramble On"
+	str3 := str1 + "-" + str2
+	fmt.Printf("\nCatinate Strings: '%s' + '%s' = '%s'", str1, str2, str3)
+
+	str4 := "Black Sabbath - "
+	str5 := "Hard Road"
+	str4 += str5
+	fmt.Printf("\nCatinate Strings: '%s'", str4)
+
+	var str7 strings.Builder
+	str7.WriteString("Post Malone")
+	str7.WriteString("-")
+	str7.WriteString("Circles")
+	fmt.Printf("\nCatinate Strings: '%s'", &str7)
+
+	str8 := "Weezer"
+	str9 := "-"
+	str10 := "Africa"
+	str11 := fmt.Sprintf("%s%s%s", str8, str9, str10)
+	fmt.Printf("\nCatinate Strings: '%s'", str11)
+
+	// repeat
+	str12 := "Gorillaz-Feel Good Inc."
+	repeatStr := fmt.Sprintf("%s", strings.Repeat(str12, 3))
+	fmt.Printf("\n%s", repeatStr)
+
 	// string runes
 	playRunes()
 

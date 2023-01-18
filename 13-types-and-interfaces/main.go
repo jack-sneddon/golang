@@ -55,6 +55,15 @@ func printShapeInfo(s shape) {
 	fmt.Printf("\nShape area is %f\n", s.area())
 }
 
+/*
+	- Interfaces are different than typical OO language interfaces
+	- An Interface is a custom type that is used to specify a set of methods.
+	- interface is abstract (can't create an object of the interface type)
+	- But you are allowed to create a variable of an interface type and this variable can
+		be assigned with a concrete type value that has the methods the interface requires.
+		Or in other words, the interface is a collection of methods as well as it is a custom type.
+*/
+
 // **********
 // define the shape interface d
 type shape interface {
@@ -63,7 +72,7 @@ type shape interface {
 }
 
 // **********
-// define the shape structures
+// define shape structures
 type Rectangle struct {
 	width, height float64
 }
@@ -74,6 +83,7 @@ type Circle struct {
 
 // **********
 // define the interface functions
+// Implementing an interface we need to implement all the methods in the interface (area + shapeType
 func (rec Rectangle) area() float64 {
 	return rec.width * rec.height
 }
