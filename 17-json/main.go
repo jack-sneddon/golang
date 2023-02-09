@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"os"
 )
 
 type Person struct {
@@ -41,4 +42,31 @@ func main() {
 	}
 	fmt.Println(string(person))
 
+	// using struct tags
+	fmt.Println("***Struct Tags to JSON")
+	lotr := Book{}
+	lotr.Title = "A Gentleman in Moscow"
+	lotr.Author = "Tolken"
+	lotr.Pages = 1000
+	fmt.Println(lotr)
+
+	gm := Book{}
+	gm.Title = "Lord of the Rings"
+	gm.Pages = 350
+	fmt.Println(gm)
+
+	out, err := json.MarshalIndent(gm, "", "    ")
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	fmt.Println("\n", string(out))
+
+}
+
+// example of tags - metadata attached to fields
+type Book struct {
+	Title  string `json:"title"`
+	Author string `json:"author"`
+	Pages  int    `json:"pages"`
 }

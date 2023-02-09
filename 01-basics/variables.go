@@ -23,6 +23,19 @@ func playVariables() {
 	fmt.Println("complex64: ", c)
 	fmt.Println("string: ", s)
 
+	// global assignment
+	fmt.Println(ga, gb)
+
+	// constant
+	const NOCHANGE string = "Cannot Change"
+	fmt.Println(NOCHANGE)
+
+	// zero value - variables start out with zero
+	var x int
+	var y string
+	var z float64
+	fmt.Printf("zero init: %v, %v, %v", x, y, z)
+
 	// *** string
 	fmt.Println("\n***String")
 	var myStr1 string = "My String 1"

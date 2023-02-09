@@ -5,6 +5,35 @@ import "fmt"
 func playSlices() {
 
 	fmt.Println("\n======Slices - Unlike arrays, slices are typed only by the elements they contain (not the number of elements)")
+
+	// create a slice
+	fmt.Println("\n**** Create a slice ")
+	// := []... - tells it open ended.  could set boundaries [min, max]
+	// under the hood creates an array then makes a slice that points to that array
+	slice1 := []int{2, 3, 5, 7, 11, 13}
+	fmt.Println("New Slice = ", slice1)
+
+	// Create a slice from an array slice
+	fmt.Println("\n**** Create a slice from an existing array")
+	// create an array
+	states := [7]string{"Wisconsin", "Utah", "Oregon", "Missouri", "Wyoming", "North Carolina", "Washington"}
+	fmt.Println("Array = ", states)
+
+	// create a slice from the array - note lower bound (0) and upperbound (5)
+	// omiting values is okay.  defaults are lower bound = 9, upper bound = len of array
+	var s []string = states[0:5]
+	fmt.Println("\nSlice from array = ", s)
+
+	s[2] = "Idaho"
+	fmt.Println("Change Oregon to Idaho [2]")
+	fmt.Println("slice = ", s)
+	fmt.Println("array = ", states)
+
+	// print out length & capacity
+	fmt.Printf("slice - len= %d cap= %d - %v\n", len(s), cap(s), s)
+
+	// make command allows you to create dynmically size slices
+	fmt.Println("\n**** Create a slice from make (dynamic size)")
 	mySlice := make([]string, 3)
 	fmt.Println("mySlice (empty):", mySlice)
 

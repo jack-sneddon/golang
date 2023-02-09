@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+/*
+Think of maps like dictionaries
+*/
 func main() {
 
 	// simple map

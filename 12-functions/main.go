@@ -6,6 +6,9 @@ import "fmt"
 - Go is pass by value by default.
 - Go is does allow pass by value by pointers
 */
+
+var a, b int = 1, 2
+
 func main() {
 	// call a function
 	favoriteNBATeam := favNBATeam()
@@ -45,6 +48,9 @@ func main() {
 	if you wan ta  function to update its elewments, use a slice that refers to the array.
 	*/
 
+	// defered functions - wait to execute the function until the outer function is complete
+	playDeferredFunction()
+
 	// anonymous function
 	// short in scope - less than package
 	whatAmI := func(i interface{}) {
@@ -58,10 +64,13 @@ func main() {
 		}
 	}
 
-	// call anonmoys functions
+	// call anonymous functions
 	whatAmI(true)
 	whatAmI(1)
 	whatAmI("hey")
+
+	// closure
+	playClosures()
 
 }
 
@@ -109,4 +118,37 @@ func passByReference(passedReference *int) {
 	fmt.Printf("\npassedReference %d, %p", *passedReference, passedReference)
 	*passedReference += 5
 	fmt.Printf("\npassedReference += 5 = %v, %p", *passedReference, passedReference)
+}
+
+func playDeferredFunction() {
+	fmt.Println("***DeferredFunctions")
+	defer printSomeStatement()
+	fmt.Println("A")
+}
+
+func printSomeStatement() {
+	fmt.Println("B")
+}
+
+func playClosures() {
+	fmt.Println("###\nClosures\n####")
+	fmt.Println("closures are like anonymous functions")
+
+	// create a pointer to a function.  Scope stays within that function
+	c := counting()
+	c()
+	c()
+	c()
+	c()
+
+	fmt.Println("\n**")
+
+}
+
+func counting() func() {
+	count := 1
+	return func() {
+		fmt.Printf("\ncount = %d", count)
+		count++
+	}
 }

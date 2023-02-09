@@ -53,4 +53,30 @@ func playDateAndTime() {
 	fmt.Printf("\nDay of Year  : %v", currentTime.YearDay())
 	fmt.Printf("\nTimezone  : %v", currentTime.Location())
 
+	// time math
+	now := time.Now()
+
+	// Parse [layout [day mon year time], time-string)
+	myTime, err := time.Parse("2 Jan 06 03:04PM", "01 Jan 23 09:12PM")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("\n***Time Math")
+
+	// time duration
+	difference := now.Sub(myTime)
+	fmt.Println("Time since Jan 1 of this year : ", difference)
+	fmt.Println("hours: ", difference.Hours())
+	fmt.Println("seconds: ", difference.Seconds())
+	fmt.Println("milliseconds: ", difference.Milliseconds())
+
+	// 1 day future
+	later := now.Add(24 * time.Hour)
+	fmt.Println("now: ", now, "\nlater: ", later)
+
+	fmt.Println("\n***Time compare")
+	fmt.Println(now.Before(myTime))
+	fmt.Println(now.After(myTime))
+
 }

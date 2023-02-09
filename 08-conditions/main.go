@@ -68,6 +68,9 @@ func main() {
 		fmt.Printf("\n%v is in the %v", city, region)
 	}
 
+	// swtich on the type
+	t := 100
+
 }
 
 func getRegion(city string) string {
