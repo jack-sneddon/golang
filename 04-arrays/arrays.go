@@ -1,3 +1,7 @@
+// go run .
+// go run *.go
+// go run main.go arrays.go slices.go
+
 package main
 
 import "fmt"

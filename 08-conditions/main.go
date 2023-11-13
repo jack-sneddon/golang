@@ -69,7 +69,7 @@ func main() {
 	}
 
 	// swtich on the type
-	t := 100
+	//t := 100
 
 }
 
